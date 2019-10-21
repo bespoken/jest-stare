@@ -28,6 +28,26 @@ export interface IJestStareConfig {
      */
     resultHtml?: string;
 
+
+    /**
+     * The title of the generated report
+     * @memberof IJestStareConfig
+     */
+    reportTitle?: string;
+
+    /**
+     * The headline of the generated report
+     * @type {string}
+     * @memberof IJestStareConfig
+     */
+    reportHeadline?: string;
+
+    /**
+     * Enables the summary report
+     * @memberof IJestStareConfig
+     */
+    reportSummary?: boolean;
+
     /**
      * Configure whether logging is on (true) or off (false)
      * @type {boolean}

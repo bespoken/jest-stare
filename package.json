@@ -1,11 +1,11 @@
 {
-  "name": "jest-stare",
-  "version": "1.18.1",
+  "name": "bespoken-jest-stare",
+  "version": "1.0.5",
   "description": "jest html reporter (results processor) to view HTML jest results, save raw JSON, and invoke multiple reporters",
   "license": "MIT",
-  "repository": "https://github.com/dkelosky/jest-stare",
+  "repository": "https://github.com/bespoken/jest-stare",
   "author": {
-    "name": "dan kelosky",
+    "name": "juan perata",
     "email": "",
     "url": ""
   },
@@ -59,22 +59,23 @@
     "moment": "^2.23.0",
     "mustache": "^3.0.0",
     "pkg-up": "^3.0.0",
-    "popper.js": "^1.14.6"
+    "popper.js": "^1.14.6",
+    "yargs": "^14.2.0"
   },
   "devDependencies": {
-    "@types/chart.js": "2.8.5",
+    "@types/chart.js": "2.8.7",
     "@types/diff2html": "0.0.5",
     "@types/jest": "22.2.3",
     "@types/jquery": "3.3.31",
     "@types/mustache": "0.8.32",
-    "@types/node": "8.10.54",
+    "@types/node": "8.10.55",
     "browserify": "16.5.0",
     "codecov": "3.6.1",
-    "coveralls": "3.0.6",
+    "coveralls": "3.0.7",
     "jest": "24.9.0",
     "jest-environment-jsdom": "24.9.0",
     "jest-environment-node-debug": "2.0.0",
-    "jest-html-reporter": "2.6.0",
+    "jest-html-reporter": "2.6.2",
     "jest-image-snapshot": "2.11.0",
     "jest-junit": "8.0.0",
     "rimraf": "3.0.0",
@@ -82,7 +83,7 @@
     "ts-node": "8.4.1",
     "tslint": "5.20.0",
     "tslint-config-prettier": "1.18.0",
-    "typescript": "3.6.3"
+    "typescript": "3.6.4"
   },
   "engines": {
     "node": ">=6.0.0"
@@ -118,6 +119,7 @@
       "jest-html-reporter",
       "jest-junit"
     ],
+    "reportSummary": "true",
     "coverageLink": "../../coverage/lcov-report/index.html",
     "jestStareConfigJson": "jest-stare.json",
     "jestGlobalConfigJson": "globalStuff.json"

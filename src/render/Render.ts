@@ -4,6 +4,7 @@ import { Constants } from "./Constants";
 import { Status } from "./charts/Status";
 import { Doughnut } from "./charts/Doughnut";
 import { TestSuite } from "./suites/TestSuite";
+import { TestSummary } from "./summary/TestSummary";
 import { IChartData } from "./doc/IChartData";
 import { IJestStareConfig } from "../processor/doc/IJestStareConfig";
 import { isNullOrUndefined } from "util";
@@ -65,6 +66,9 @@ export class Render {
         const labels = [Constants.PASSED_LABEL, Constants.FAILED_LABEL];
         const backgroundColor = [Constants.PASS, Constants.FAIL];
 
+        Render.setReportTitle(config);
+        Render.setReportHeadline(config);
+
         // link to coverage if available
         Render.setCoverageLink(config);
 
@@ -92,6 +96,11 @@ export class Render {
         // hide loading and show suites
         $("#loading-info").hide();
         $("#test-results").replaceWith($(tableHtml));
+
+        if (config.reportSummary) {
+            const testSummary = TestSummary.create(results);
+            $("#test-summary").replaceWith($(testSummary));
+        }
 
         // hide passing tests
         if (config.hidePassing) {
@@ -147,6 +156,32 @@ export class Render {
             results.snapshot.updated === 0) {
             $("#snapshots-group").hide();
         }
+    }
+
+
+    /**
+     * Set report title if presented in jest-stare config
+     * @private
+     * @static
+     * @param {IJestStareConfig} config - jest-stare config object
+     * @memberof Render
+     */
+    private static setReportTitle(config: IJestStareConfig) {
+        const tabTitle = !isNullOrUndefined(config.reportTitle) ? config.reportTitle : "jest-stare!";
+        document.title = tabTitle;
+    }
+
+    /**
+     * Set report headline if presented in jest-stare config
+     * @private
+     * @static
+     * @param {IJestStareConfig} config - jest-stare config object
+     * @memberof Render
+     */
+    private static setReportHeadline(config: IJestStareConfig) {
+        const brandTitle =  !isNullOrUndefined(config.reportHeadline) ? config.reportHeadline : "jest-stare";
+        const a = $("#navbar-title");
+        a.text(brandTitle);
     }
 
     /**

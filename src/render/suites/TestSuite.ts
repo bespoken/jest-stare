@@ -24,7 +24,7 @@ export class TestSuite {
     public static create(results: jest.AggregatedResult): HTMLElement[] {
         const elements: HTMLElement[] = [];
 
-        results.testResults.forEach((testResult) => {
+        results.testResults.forEach((testResult, pathIndex) => {
 
             // NOTE(Kelosky): jest.AggregateResult has a testResults array
             // which contains a jest.TestResults array.  jest.TestResults array
@@ -108,7 +108,7 @@ export class TestSuite {
             const h5 = document.createElement("h5") as HTMLHeadingElement;
             h5.classList.add("border-bottom", "pb-2", "mb-0", "display-5");
             h5.textContent = testResult.testFilePath;
-
+            div.id = testResult.testFilePath;
             div.appendChild(h5);
 
             // if a flat test report were to be used, simply
@@ -117,7 +117,7 @@ export class TestSuite {
             // });
 
             const divMap: Map<string, HTMLElement> = new Map<string, HTMLElement>();
-            testResult.testResults.forEach((test) => {
+            testResult.testResults.forEach((test, testIndex) => {
                 const element = Test.create(test);
                 if (test.ancestorTitles.length > 0) {
                     test.ancestorTitles.forEach((title, index) => {
@@ -136,6 +136,8 @@ export class TestSuite {
                             h6.textContent = title;
                             nestDiv.appendChild(h6);
                             nestDiv.appendChild(element);
+                            nestDiv.id = key + TestSuite.JOIN_CHAR + pathIndex + TestSuite.JOIN_CHAR + testIndex
+                                + TestSuite.JOIN_CHAR + index;
 
                             divMap.set(key, nestDiv);
 
