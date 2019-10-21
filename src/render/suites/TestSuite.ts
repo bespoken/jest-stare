@@ -24,7 +24,7 @@ export class TestSuite {
     public static create(results: jest.AggregatedResult): HTMLElement[] {
         const elements: HTMLElement[] = [];
 
-        results.testResults.forEach((testResult) => {
+        results.testResults.forEach((testResult, pathIndex) => {
 
             // NOTE(Kelosky): jest.AggregateResult has a testResults array
             // which contains a jest.TestResults array.  jest.TestResults array
@@ -117,7 +117,7 @@ export class TestSuite {
             // });
 
             const divMap: Map<string, HTMLElement> = new Map<string, HTMLElement>();
-            testResult.testResults.forEach((test) => {
+            testResult.testResults.forEach((test, testIndex) => {
                 const element = Test.create(test);
                 if (test.ancestorTitles.length > 0) {
                     test.ancestorTitles.forEach((title, index) => {
@@ -136,7 +136,8 @@ export class TestSuite {
                             h6.textContent = title;
                             nestDiv.appendChild(h6);
                             nestDiv.appendChild(element);
-                            nestDiv.id = key;
+                            nestDiv.id = key + TestSuite.JOIN_CHAR + pathIndex + TestSuite.JOIN_CHAR + testIndex
+                                + TestSuite.JOIN_CHAR + index;
 
                             divMap.set(key, nestDiv);
 

@@ -176,6 +176,10 @@ code {
     display: inline-block;
 }
 
+.summary-test-label.smallLabel {
+    width: 2%;
+}
+
 .summary-test-label.pass {
     color: #28a745;
 }

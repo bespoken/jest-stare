@@ -37,20 +37,20 @@ export class CLI {
 
         const config: IJestStareConfig = {};
 
-        if (isNullOrUndefined(args.testResults)) {
+        if (isNullOrUndefined(args._[0])) {
             Logger.get.error(Constants.NO_CLI_INPUT);
             throw new Error();
         }
 
-        if (!isNullOrUndefined(args.resultDir)) {
-            config.resultDir = args.resultDir as string;
+        if (!isNullOrUndefined(args._[1])) {
+            config.resultDir = args._[1] as string;
         }
 
         if (!isNullOrUndefined(args.coverageLink)) {
             config.coverageLink = args.coverageLink;
         }
 
-        const results = IO.readFileSync(args.testResults as string);
+        const results = IO.readFileSync(args._[0] as string);
         Processor.run(JSON.parse(results), config);
     }
 }

@@ -1,11 +1,11 @@
 {
-  "name": "jest-stare",
-  "version": "1.20.0",
+  "name": "bespoken-jest-stare",
+  "version": "1.0.5",
   "description": "jest html reporter (results processor) to view HTML jest results, save raw JSON, and invoke multiple reporters",
   "license": "MIT",
-  "repository": "https://github.com/dkelosky/jest-stare",
+  "repository": "https://github.com/bespoken/jest-stare",
   "author": {
-    "name": "dan kelosky",
+    "name": "juan perata",
     "email": "",
     "url": ""
   },
