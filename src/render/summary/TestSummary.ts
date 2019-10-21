@@ -140,6 +140,8 @@ export class TestSummary {
                 }
             });
 
+            const locales =  [...new Set(testCountArray.map((key) => testCountMap.get(key).locale))];
+
             testCountArray.forEach((key) => {
                 const testCount = testCountMap.get(key);
                 const testCountSpan = document.createElement("strong") as HTMLSpanElement;
@@ -152,7 +154,8 @@ export class TestSummary {
 
                 const containerDiv = divMap.get(key);
                 const ancestorLink = document.createElement("a") as HTMLAnchorElement;
-                ancestorLink.textContent = `(${testCount.locale}) ${testCount.title}`;
+                ancestorLink.textContent = locales.length > 1 ? `(${testCount.locale}) ${testCount.title}`
+                    : testCount.title;
                 ancestorLink.href = testCount.href;
                 ancestorLink.classList.add("summary-test-label", "path");
 
