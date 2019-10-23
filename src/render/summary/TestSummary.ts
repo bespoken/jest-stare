@@ -59,13 +59,12 @@ export class TestSummary {
             testTitleDiv.classList.add("summary-test-suite");
 
             const testFileLink = document.createElement("a") as HTMLAnchorElement;
-            const isPass =
-                (testResult.testResults.length - (testResult.numPassingTests + testResult.numPendingTests)) === 0;
+            const isFail = testResult.numFailingTests > 0;
 
             const testStatus = document.createElement("strong") as HTMLSpanElement;
 
             testStatus.classList.add("summary-test-label");
-            if (isPass) {
+            if (!isFail) {
                 testStatus.classList.add("pass");
                 testStatus.textContent = "PASS";
             } else {

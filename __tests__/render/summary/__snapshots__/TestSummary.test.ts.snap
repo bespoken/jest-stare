@@ -224,9 +224,9 @@ Array [
         href="#Work\\\\Dev\\\\node\\\\jest-stare\\\\__tests__\\\\utils\\\\IO.test.ts"
       >
         <strong
-          class="summary-test-label fail"
+          class="summary-test-label pass"
         >
-          FAIL
+          PASS
         </strong>
         <strong
           class="summary-test-label path"
@@ -246,9 +246,9 @@ Array [
         href="#Work\\\\Dev\\\\node\\\\jest-stare\\\\__tests__\\\\reporter\\\\Reporter.test.ts"
       >
         <strong
-          class="summary-test-label fail"
+          class="summary-test-label pass"
         >
-          FAIL
+          PASS
         </strong>
         <strong
           class="summary-test-label path"
