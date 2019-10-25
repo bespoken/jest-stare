@@ -75,8 +75,8 @@ export class TestSummary {
             const testFileLine = document.createElement("strong") as HTMLSpanElement;
             testFileLine.classList.add("summary-test-label", "path");
             testFileLine.textContent = testResult.testFilePath;
-
             testFileLink.href = "#" + testResult.testFilePath;
+
             testFileLink.appendChild(testStatus);
             testFileLink.appendChild(testFileLine);
 
