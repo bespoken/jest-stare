@@ -60,26 +60,34 @@ export class Test {
 
         secondDiv.appendChild(thirdDiv);
 
-        const strong = document.createElement("strong") as HTMLElement;
-        strong.classList.add("text-gray-dark");
-        strong.textContent = innerTestResult.title;
+        if (testStatusClass !== Constants.PENDING_TEST) {
+            const strong = document.createElement("strong") as HTMLElement;
+            strong.classList.add("text-gray-dark");
+            strong.textContent = innerTestResult.title;
+            thirdDiv.appendChild(strong);
+        }
 
         // NOTE(Kelosky): technically, this may not be unique, but it's unlikely to be the case
         const titleId = innerTestResult.title.replace(/\s+/g, "-").toLowerCase();
-        thirdDiv.appendChild(strong);
 
         const small = document.createElement("small") as HTMLElement;
         small.classList.add("d-block", "text-right", "mt-3");
         const conversionValu = 1000;
         small.textContent = innerTestResult.duration as any / conversionValu + "s";
 
-        thirdDiv.appendChild(small);
+
 
         const span = document.createElement("span") as HTMLSpanElement;
         span.classList.add("d-block", "mb-2");
+        if (testStatusClass === Constants.PENDING_TEST) {
+            span.classList.add("pending-margin");
+        }
         span.textContent = innerTestResult.status;
 
         secondDiv.appendChild(span);
+        if (testStatusClass !== Constants.PENDING_TEST) {
+            thirdDiv.appendChild(small);
+        }
 
         if (failed) {
 
