@@ -156,27 +156,32 @@ export class Processor {
             return;
         }
 
-        // create base html file
-        IO.writeFileSync(resultDir + substitute.jestStareConfig.resultHtml,
-            mustache.render(this.obtainWebFile(Constants.TEMPLATE_HTML), substitute));
+        if (substitute.jestStareConfig.inlineSource) {
+            IO.writeFileSync(resultDir + substitute.jestStareConfig.resultHtml,
+            mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute));
+        } else {
+            // create base html file
+            IO.writeFileSync(resultDir + substitute.jestStareConfig.resultHtml,
+                mustache.render(this.obtainWebFile(Constants.TEMPLATE_HTML), substitute));
 
-        // create our css
-        const cssDir = resultDir + Constants.CSS_DIR;
-        IO.mkdirsSync(cssDir);
-        IO.writeFileSync(cssDir + Constants.JEST_STARE_CSS, this.obtainWebFile(Constants.JEST_STARE_CSS));
+            // create our css
+            const cssDir = resultDir + Constants.CSS_DIR;
+            IO.mkdirsSync(cssDir);
+            IO.writeFileSync(cssDir + Constants.JEST_STARE_CSS, this.obtainWebFile(Constants.JEST_STARE_CSS));
 
-        // create our js
-        const jsDir = resultDir + Constants.JS_DIR;
-        IO.mkdirsSync(jsDir);
-        IO.writeFileSync(jsDir + Constants.JEST_STARE_JS, this.obtainJsRenderFile(Constants.JEST_STARE_JS));
+            // create our js
+            const jsDir = resultDir + Constants.JS_DIR;
+            IO.mkdirsSync(jsDir);
+            IO.writeFileSync(jsDir + Constants.JEST_STARE_JS, this.obtainJsRenderFile(Constants.JEST_STARE_JS));
 
-        // add third party dependencies
-        Dependencies.THIRD_PARTY_DEPENDENCIES.forEach((dependency) => {
-            // dependency.targetDir = resultDir + dependency.targetDir;
-            const updatedDependency = Object.assign({}, ...[dependency]);
-            updatedDependency.targetDir = resultDir + dependency.targetDir;
-            this.addThirdParty(updatedDependency);
-        });
+            // add third party dependencies
+            Dependencies.THIRD_PARTY_DEPENDENCIES.forEach((dependency) => {
+                // dependency.targetDir = resultDir + dependency.targetDir;
+                const updatedDependency = Object.assign({}, ...[dependency]);
+                updatedDependency.targetDir = resultDir + dependency.targetDir;
+                this.addThirdParty(updatedDependency);
+            });
+        }
 
         // log complete
         let type = " ";

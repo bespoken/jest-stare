@@ -86,6 +86,13 @@ export class Constants {
     public static readonly TEMPLATE_HTML = "template.html";
 
     /**
+     * Template HTML file
+     * @static
+     * @memberof Constants
+     */
+    public static readonly TEMPLATE_INLINE_SOURCE_HTML = "templateInlineSource.html";
+
+    /**
      * Base dir to contain css files
      * @static
      * @memberof Constants

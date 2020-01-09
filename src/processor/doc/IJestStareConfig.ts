@@ -122,6 +122,13 @@ export interface IJestStareConfig {
      * @memberof IJestStareConfig
      */
     hidePending?: boolean;
+
+    /**
+     * Set to true to create a single file HTML report
+     * @type {boolean}
+     * @memberof IJestStareConfig
+     */
+    inlineSource?: boolean;
 }
 
 /**

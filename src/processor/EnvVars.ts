@@ -56,7 +56,8 @@ export class EnvVars {
             disableCharts: this.mEnvSrv.readBoolEnvValue("DISABLE_CHARTS"),
             hidePassing: this.mEnvSrv.readBoolEnvValue("HIDE_PASSING"),
             hideFailing: this.mEnvSrv.readBoolEnvValue("HIDE_FAILING"),
-            hidePending: this.mEnvSrv.readBoolEnvValue("HIDE_PENDING")
+            hidePending: this.mEnvSrv.readBoolEnvValue("HIDE_PENDING"),
+            inlineSource: this.mEnvSrv.readBoolEnvValue("INLINE_SOURCE")
         };
     }
 
@@ -143,6 +144,12 @@ export class EnvVars {
             mergedConfig.hidePending =
                 envConfig.hidePending == null ? packageJsonConfig.hidePending : envConfig.hidePending;
         }
+
+        if (envConfig.inlineSource != null || packageJsonConfig.inlineSource != null) {
+            mergedConfig.inlineSource =
+                envConfig.inlineSource == null ? packageJsonConfig.inlineSource : envConfig.inlineSource;
+        }
+
         return mergedConfig;
     }
 }
