@@ -12,6 +12,8 @@ import { isNullOrUndefined } from "util";
 import { IProcessParms } from "./doc/IProcessParms";
 import { Config } from "./Config";
 import { ImageSnapshotDifference } from "../render/diff/ImageSnapshotDifference";
+import * as ParcelBundler from "parcel-bundler";
+import * as plugin from "parcel-plugin-inliner";
 
 /**
  * Class to post process jest output and summarize information in an html file
@@ -156,33 +158,44 @@ export class Processor {
             return;
         }
 
+        IO.writeFileSync(resultDir + substitute.jestStareConfig.resultHtml,
+            mustache.render(this.obtainWebFile(Constants.TEMPLATE_HTML), substitute));
+
+        // create our css
+        const cssDir = resultDir + Constants.CSS_DIR;
+        IO.mkdirsSync(cssDir);
+        IO.writeFileSync(cssDir + Constants.JEST_STARE_CSS, this.obtainWebFile(Constants.JEST_STARE_CSS));
+
+        // create our js
+        const jsDir = resultDir + Constants.JS_DIR;
+        IO.mkdirsSync(jsDir);
+        IO.writeFileSync(jsDir + Constants.JEST_STARE_JS, this.obtainJsRenderFile(Constants.JEST_STARE_JS));
+
+        // add third party dependencies
+        Dependencies.THIRD_PARTY_DEPENDENCIES.forEach((dependency) => {
+            // dependency.targetDir = resultDir + dependency.targetDir;
+            const updatedDependency = Object.assign({}, ...[dependency]);
+            updatedDependency.targetDir = resultDir + dependency.targetDir;
+            this.addThirdParty(updatedDependency);
+        });
+
         if (substitute.jestStareConfig.inlineSource) {
-            IO.writeFileSync(resultDir + substitute.jestStareConfig.resultHtml,
-            mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute));
-        } else {
-            // create base html file
-            IO.writeFileSync(resultDir + substitute.jestStareConfig.resultHtml,
-                mustache.render(this.obtainWebFile(Constants.TEMPLATE_HTML), substitute));
-
-            // create our css
-            const cssDir = resultDir + Constants.CSS_DIR;
-            IO.mkdirsSync(cssDir);
-            IO.writeFileSync(cssDir + Constants.JEST_STARE_CSS, this.obtainWebFile(Constants.JEST_STARE_CSS));
-
-            // create our js
-            const jsDir = resultDir + Constants.JS_DIR;
-            IO.mkdirsSync(jsDir);
-            IO.writeFileSync(jsDir + Constants.JEST_STARE_JS, this.obtainJsRenderFile(Constants.JEST_STARE_JS));
-
-            // add third party dependencies
-            Dependencies.THIRD_PARTY_DEPENDENCIES.forEach((dependency) => {
-                // dependency.targetDir = resultDir + dependency.targetDir;
-                const updatedDependency = Object.assign({}, ...[dependency]);
-                updatedDependency.targetDir = resultDir + dependency.targetDir;
-                this.addThirdParty(updatedDependency);
+            const bundler = new ParcelBundler(resultDir + substitute.jestStareConfig.resultHtml,
+                {
+                    watch: false,
+                    publicUrl: ".",
+                    outDir: resultDir + "/dist",
+                    minify: true,
+                }
+            );
+            plugin(bundler);
+            bundler.bundle().then((result) => {
+                IO.copyFileSync(resultDir + "/dist/index.html", resultDir + "/index.html.inline.html");
+                IO.deleteFolderSync(resultDir + "/dist");
+            }).catch((error) => {
+                this.logger.error(error);
             });
         }
-
         // log complete
         let type = " ";
         type += (parms && parms.reporter) ? Constants.REPORTERS : Constants.TEST_RESULTS_PROCESSOR;
