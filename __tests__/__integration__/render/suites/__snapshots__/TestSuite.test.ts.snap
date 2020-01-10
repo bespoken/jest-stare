@@ -5766,7 +5766,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -5809,7 +5809,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -5848,6 +5848,20 @@ Array [
                               class="d2h-code-side-line d2h-code-side-emptyplaceholder d2h-cntx d2h-emptyplaceholder"
                             >
                               
+            
+                              <span
+                                class="d2h-code-line-prefix"
+                              >
+                                 
+                              </span>
+                              
+            
+                              <span
+                                class="d2h-code-line-ctn"
+                              >
+                                 
+                              </span>
+                              
         
                             </div>
                             
@@ -5881,7 +5895,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -5924,7 +5938,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -5967,7 +5981,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6066,7 +6080,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6109,7 +6123,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6195,7 +6209,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6238,7 +6252,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6281,7 +6295,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6606,7 +6620,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6692,7 +6706,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6735,7 +6749,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6778,7 +6792,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6821,7 +6835,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6920,7 +6934,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -6959,6 +6973,20 @@ Array [
                               class="d2h-code-side-line d2h-code-side-emptyplaceholder d2h-cntx d2h-emptyplaceholder"
                             >
                               
+            
+                              <span
+                                class="d2h-code-line-prefix"
+                              >
+                                 
+                              </span>
+                              
+            
+                              <span
+                                class="d2h-code-line-ctn"
+                              >
+                                 
+                              </span>
+                              
         
                             </div>
                             
@@ -6992,7 +7020,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -7035,7 +7063,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -7078,7 +7106,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -7121,7 +7149,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -7734,7 +7762,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -7756,7 +7784,7 @@ Array [
                           
     
                           <td
-                            class="d2h-code-side-linenumber d2h-del d2h-change"
+                            class="d2h-code-side-linenumber d2h-del"
                           >
                             
       1
@@ -7765,12 +7793,12 @@ Array [
                           
     
                           <td
-                            class="d2h-del d2h-change"
+                            class="d2h-del"
                           >
                             
         
                             <div
-                              class="d2h-code-side-line d2h-del d2h-change"
+                              class="d2h-code-side-line d2h-del"
                             >
                               
             
@@ -7824,7 +7852,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -7867,7 +7895,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -7910,7 +7938,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -7953,7 +7981,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -7996,7 +8024,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8095,7 +8123,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8117,7 +8145,7 @@ Array [
                           
     
                           <td
-                            class="d2h-code-side-linenumber d2h-ins d2h-change"
+                            class="d2h-code-side-linenumber d2h-ins"
                           >
                             
       1
@@ -8126,12 +8154,12 @@ Array [
                           
     
                           <td
-                            class="d2h-ins d2h-change"
+                            class="d2h-ins"
                           >
                             
         
                             <div
-                              class="d2h-code-side-line d2h-ins d2h-change"
+                              class="d2h-code-side-line d2h-ins"
                             >
                               
             
@@ -8185,7 +8213,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8228,7 +8256,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8271,7 +8299,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8314,7 +8342,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8357,7 +8385,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8727,7 +8755,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8770,7 +8798,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8792,7 +8820,7 @@ Array [
                           
     
                           <td
-                            class="d2h-code-side-linenumber d2h-del d2h-change"
+                            class="d2h-code-side-linenumber d2h-del"
                           >
                             
       2
@@ -8801,12 +8829,12 @@ Array [
                           
     
                           <td
-                            class="d2h-del d2h-change"
+                            class="d2h-del"
                           >
                             
         
                             <div
-                              class="d2h-code-side-line d2h-del d2h-change"
+                              class="d2h-code-side-line d2h-del"
                             >
                               
             
@@ -8945,7 +8973,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -8988,7 +9016,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -9087,7 +9115,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -9130,7 +9158,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -9152,7 +9180,7 @@ Array [
                           
     
                           <td
-                            class="d2h-code-side-linenumber d2h-ins d2h-change"
+                            class="d2h-code-side-linenumber d2h-ins"
                           >
                             
       2
@@ -9161,12 +9189,12 @@ Array [
                           
     
                           <td
-                            class="d2h-ins d2h-change"
+                            class="d2h-ins"
                           >
                             
         
                             <div
-                              class="d2h-code-side-line d2h-ins d2h-change"
+                              class="d2h-code-side-line d2h-ins"
                             >
                               
             
@@ -9212,6 +9240,20 @@ Array [
                               class="d2h-code-side-line d2h-code-side-emptyplaceholder d2h-cntx d2h-emptyplaceholder"
                             >
                               
+            
+                              <span
+                                class="d2h-code-line-prefix"
+                              >
+                                 
+                              </span>
+                              
+            
+                              <span
+                                class="d2h-code-line-ctn"
+                              >
+                                 
+                              </span>
+                              
         
                             </div>
                             
@@ -9240,6 +9282,20 @@ Array [
                             <div
                               class="d2h-code-side-line d2h-code-side-emptyplaceholder d2h-cntx d2h-emptyplaceholder"
                             >
+                              
+            
+                              <span
+                                class="d2h-code-line-prefix"
+                              >
+                                 
+                              </span>
+                              
+            
+                              <span
+                                class="d2h-code-line-ctn"
+                              >
+                                 
+                              </span>
                               
         
                             </div>
@@ -9274,7 +9330,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
@@ -9317,7 +9373,7 @@ Array [
                               <span
                                 class="d2h-code-line-prefix"
                               >
-                                 
+                                 
                               </span>
                               
             
