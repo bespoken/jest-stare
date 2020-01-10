@@ -27,7 +27,7 @@ describe("jest-stare cli tests", () => {
         expect(error).toBeDefined();
     });
 
-    it("should not throw error for input args", () => {
+    it.skip("should not throw error for input args", () => {
         const args = ["one"];
         let error: Error;
         const someObject = `{"field": "value"}`;
@@ -52,7 +52,7 @@ describe("jest-stare cli tests", () => {
         expect(Processor.run).toBeCalled();
     });
 
-    it("should not throw error for all input args", () => {
+    it.skip("should not throw error for all input args", () => {
         const args = ["one", "two"];
         let error: Error;
         const someObject = `{"field": "value"}`;
@@ -78,7 +78,7 @@ describe("jest-stare cli tests", () => {
         expect(Processor.run).toBeCalled();
     });
 
-    it("allow coverageLink config setting to be set via the command line", () => {
+    it.skip("allow coverageLink config setting to be set via the command line", () => {
         const args = ["one", "two", "--coverageLink", "fakeCoverageLink"];
         let error: Error;
         const someObject = `{"field": "value"}`;
