@@ -23,7 +23,7 @@ const addThirdParty = (dependency: IThirdPartyDependency) => {
     IO.writeFileSync(dependency.targetDir + dependency.file, IO.readFileSync(location));
 };
 
-// copy tempalte
+// copy template
 IO.mkdirsSync(resultDir);
 IO.copyFileSync("web/template.html", resultDir + "template.html");
 
