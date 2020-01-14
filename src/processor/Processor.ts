@@ -12,8 +12,6 @@ import { isNullOrUndefined } from "util";
 import { IProcessParms } from "./doc/IProcessParms";
 import { Config } from "./Config";
 import { ImageSnapshotDifference } from "../render/diff/ImageSnapshotDifference";
-import * as ParcelBundler from "parcel-bundler";
-import * as plugin from "parcel-plugin-inliner";
 
 /**
  * Class to post process jest output and summarize information in an html file
@@ -180,22 +178,13 @@ export class Processor {
         });
 
         if (substitute.jestStareConfig.inlineSource) {
-            const bundler = new ParcelBundler(resultDir + substitute.jestStareConfig.resultHtml,
-                {
-                    watch: false,
-                    publicUrl: ".",
-                    outDir: resultDir + "/dist",
-                    minify: true,
-                }
-            );
-            plugin(bundler);
-            bundler.bundle().then((result) => {
-                IO.copyFileSync(resultDir + "/dist/index.html", resultDir + "/index.html.inline.html");
-                IO.deleteFolderSync(resultDir + "/dist");
-            }).catch((error) => {
-                this.logger.error(error);
-            });
+            const fileNames =  substitute.jestStareConfig.resultHtml.split(".");
+            fileNames.splice(1, 0, "inline");
+            const inlineReportName = fileNames.join(".");
+            IO.writeFileSync(resultDir + inlineReportName,
+                mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute));
         }
+
         // log complete
         let type = " ";
         type += (parms && parms.reporter) ? Constants.REPORTERS : Constants.TEST_RESULTS_PROCESSOR;
