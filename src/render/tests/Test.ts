@@ -75,8 +75,6 @@ export class Test {
         const conversionValu = 1000;
         small.textContent = innerTestResult.duration as any / conversionValu + "s";
 
-
-
         const span = document.createElement("span") as HTMLSpanElement;
         span.classList.add("d-block", "mb-2");
         if (testStatusClass === Constants.PENDING_TEST) {

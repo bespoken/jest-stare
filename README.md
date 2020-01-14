@@ -73,6 +73,7 @@ Field | Environmental Variable | Default | Description | Example
 `hidePassing` | `JEST_STARE_HIDE_PASSING` | `undefined` | hide passing tests in the report on page load | `"hidePassing": true`
 `hideFailing` | `JEST_STARE_HIDE_FAILING` | `undefined` | hide failing tests in the report on page load | `"hideFailing": true`
 `hidePending` | `JEST_STARE_HIDE_PENDING` | `undefined` | hide pending tests in the report on page load | `"hidePending": true`
+`inlineSource` |  `JEST_STARE_INLINE_SOURCE` | `false` | boolean, create a report in a single file | `"inlineSource": "true"`
 
 ### API
 You can programmatically invoke jest-stare and provide jest response data via:

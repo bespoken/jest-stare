@@ -46,7 +46,8 @@
     "coverage": "jest --coverage",
     "codecov": "codecov",
     "watch": "npm run build -- --watch",
-    "watch:test": "jest --watch"
+    "watch:test": "jest --watch",
+    "preversion": "node lib/utils/GenerateInlineReport.js"
   },
   "dependencies": {
     "ansi-parser": "^3.2.9",
@@ -63,6 +64,7 @@
     "yargs": "^14.2.0"
   },
   "devDependencies": {
+    "@types/parcel-bundler": "^1.12.1",
     "@types/chart.js": "2.8.7",
     "@types/diff2html": "0.0.5",
     "@types/jest": "22.2.3",
@@ -83,7 +85,10 @@
     "ts-node": "8.4.1",
     "tslint": "5.20.0",
     "tslint-config-prettier": "1.18.0",
-    "typescript": "3.6.4"
+    "typescript": "3.6.4",
+    "cssnano": "^4.1.10",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-inliner": "^1.0.10"
   },
   "engines": {
     "node": ">=6.0.0"
@@ -102,7 +107,8 @@
     ],
     "moduleFileExtensions": [
       "ts",
-      "js"
+      "js",
+      "node"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/jest.setup.js"

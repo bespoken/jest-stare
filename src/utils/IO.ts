@@ -132,4 +132,18 @@ export class IO {
     public static copyFileSync(src: fs.PathLike, dest: fs.PathLike): void {
         fs.copyFileSync(src, dest);
     }
+
+    public static deleteFolderSync(wpath: string): void{
+        if (fs.existsSync(wpath)) {
+          fs.readdirSync(wpath).forEach((file, index) => {
+            const curPath = path.join(wpath, file);
+            if (fs.lstatSync(curPath).isDirectory()) { // recurse
+                IO.deleteFolderSync(curPath);
+            } else { // delete file
+              fs.unlinkSync(curPath);
+            }
+          });
+          fs.rmdirSync(wpath);
+        }
+      }
 }

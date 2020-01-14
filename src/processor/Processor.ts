@@ -156,31 +156,33 @@ export class Processor {
             return;
         }
 
+        IO.writeFileSync(resultDir + substitute.jestStareConfig.resultHtml,
+            mustache.render(this.obtainWebFile(Constants.TEMPLATE_HTML), substitute));
+
+        // create our css
+        const cssDir = resultDir + Constants.CSS_DIR;
+        IO.mkdirsSync(cssDir);
+        IO.writeFileSync(cssDir + Constants.JEST_STARE_CSS, this.obtainWebFile(Constants.JEST_STARE_CSS));
+
+        // create our js
+        const jsDir = resultDir + Constants.JS_DIR;
+        IO.mkdirsSync(jsDir);
+        IO.writeFileSync(jsDir + Constants.JEST_STARE_JS, this.obtainJsRenderFile(Constants.JEST_STARE_JS));
+
+        // add third party dependencies
+        Dependencies.THIRD_PARTY_DEPENDENCIES.forEach((dependency) => {
+            // dependency.targetDir = resultDir + dependency.targetDir;
+            const updatedDependency = Object.assign({}, ...[dependency]);
+            updatedDependency.targetDir = resultDir + dependency.targetDir;
+            this.addThirdParty(updatedDependency);
+        });
+
         if (substitute.jestStareConfig.inlineSource) {
-            IO.writeFileSync(resultDir + substitute.jestStareConfig.resultHtml,
-            mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute));
-        } else {
-            // create base html file
-            IO.writeFileSync(resultDir + substitute.jestStareConfig.resultHtml,
-                mustache.render(this.obtainWebFile(Constants.TEMPLATE_HTML), substitute));
-
-            // create our css
-            const cssDir = resultDir + Constants.CSS_DIR;
-            IO.mkdirsSync(cssDir);
-            IO.writeFileSync(cssDir + Constants.JEST_STARE_CSS, this.obtainWebFile(Constants.JEST_STARE_CSS));
-
-            // create our js
-            const jsDir = resultDir + Constants.JS_DIR;
-            IO.mkdirsSync(jsDir);
-            IO.writeFileSync(jsDir + Constants.JEST_STARE_JS, this.obtainJsRenderFile(Constants.JEST_STARE_JS));
-
-            // add third party dependencies
-            Dependencies.THIRD_PARTY_DEPENDENCIES.forEach((dependency) => {
-                // dependency.targetDir = resultDir + dependency.targetDir;
-                const updatedDependency = Object.assign({}, ...[dependency]);
-                updatedDependency.targetDir = resultDir + dependency.targetDir;
-                this.addThirdParty(updatedDependency);
-            });
+            const fileNames =  substitute.jestStareConfig.resultHtml.split(".");
+            fileNames.splice(1, 0, "inline");
+            const inlineReportName = fileNames.join(".");
+            IO.writeFileSync(resultDir + inlineReportName,
+                mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute));
         }
 
         // log complete
