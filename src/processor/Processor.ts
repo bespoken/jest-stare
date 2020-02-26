@@ -183,6 +183,11 @@ export class Processor {
             const inlineReportName = fileNames.join(".");
             IO.writeFileSync(resultDir + inlineReportName,
                 mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute));
+
+            // Remove the non inline files
+            IO.removeFileSync(resultDir + substitute.jestStareConfig.resultHtml);
+            IO.deleteFolderSync(cssDir);
+            IO.removeFileSync(jsDir);
         }
 
         // log complete

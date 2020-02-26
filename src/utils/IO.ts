@@ -133,6 +133,15 @@ export class IO {
         fs.copyFileSync(src, dest);
     }
 
+    /**
+     * Remove file.
+     *
+     * @param fpath
+     */
+    public static removeFileSync(fpath: string): void {
+        fs.unlinkSync(fpath);
+    }
+
     public static deleteFolderSync(wpath: string): void{
         if (fs.existsSync(wpath)) {
           fs.readdirSync(wpath).forEach((file, index) => {
