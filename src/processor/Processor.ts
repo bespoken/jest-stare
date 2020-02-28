@@ -187,7 +187,7 @@ export class Processor {
             // Remove the non inline files
             IO.removeFileSync(resultDir + substitute.jestStareConfig.resultHtml);
             IO.deleteFolderSync(cssDir);
-            IO.removeFileSync(jsDir);
+            IO.deleteFolderSync(jsDir);
         }
 
         // log complete
