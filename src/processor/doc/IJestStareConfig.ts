@@ -129,6 +129,13 @@ export interface IJestStareConfig {
      * @memberof IJestStareConfig
      */
     inlineSource?: boolean;
+    
+    /**
+     * Set to true to create a pdf version of the report
+     * @type {boolean}
+     * @memberof IJestStareConfig
+     */
+    generatePdf?: boolean;
 }
 
 /**

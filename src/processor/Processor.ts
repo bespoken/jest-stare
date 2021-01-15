@@ -12,6 +12,7 @@ import { isNullOrUndefined } from "util";
 import { IProcessParms } from "./doc/IProcessParms";
 import { Config } from "./Config";
 import { ImageSnapshotDifference } from "../render/diff/ImageSnapshotDifference";
+import * as puppeteer from "puppeteer";
 
 /**
  * Class to post process jest output and summarize information in an html file
@@ -176,13 +177,13 @@ export class Processor {
             updatedDependency.targetDir = resultDir + dependency.targetDir;
             this.addThirdParty(updatedDependency);
         });
-
-        if (substitute.jestStareConfig.inlineSource) {
+        
+        const inlineSource = () => {
+            const inlineContent = mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute);
             const fileNames =  substitute.jestStareConfig.resultHtml.split(".");
             fileNames.splice(1, 0, "inline");
             const inlineReportName = fileNames.join(".");
-            IO.writeFileSync(resultDir + inlineReportName,
-                mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute));
+            IO.writeFileSync(resultDir + inlineReportName, inlineContent);
 
             // Remove the non inline files
             IO.removeFileSync(resultDir + substitute.jestStareConfig.resultHtml);
@@ -190,10 +191,34 @@ export class Processor {
             IO.deleteFolderSync(jsDir);
         }
 
+        const pdf = async () => {
+            const pdfBuffer = await this.printPDF(resultDir + substitute.jestStareConfig.resultHtml)
+            IO.writeFileSync(resultDir + 'index.pdf', pdfBuffer);
+        }
+
+        if (substitute.jestStareConfig.generatePdf && substitute.jestStareConfig.inlineSource) {
+            pdf().then(inlineSource);
+        } else if (substitute.jestStareConfig.inlineSource) {
+            inlineSource();
+        } else if (substitute.jestStareConfig.generatePdf) {
+            pdf();
+        }
+
         // log complete
         let type = " ";
         type += (parms && parms.reporter) ? Constants.REPORTERS : Constants.TEST_RESULTS_PROCESSOR;
         this.logger.info(Constants.LOGO + type + Constants.LOG_MESSAGE + resultDir + substitute.jestStareConfig.resultHtml + Constants.SUFFIX);
+    }
+
+    async printPDF(filePath: string) {
+      const file = path.resolve(process.cwd(), filePath);
+      const browser = await puppeteer.launch({ headless: true });
+      const page = await browser.newPage();
+      await page.goto('file://' + file, {waitUntil: 'networkidle0'});
+      const pdf = await page.pdf({ format: 'A4'});
+     
+      await browser.close();
+      return pdf
     }
 
     /**
