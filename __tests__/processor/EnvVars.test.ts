@@ -22,6 +22,7 @@ describe("EnvVars tests", () => {
         const JEST_STARE_HIDE_PASSING = "JEST_STARE_HIDE_PASSING";
         const JEST_STARE_HIDE_FAILING = "JEST_STARE_HIDE_FAILING";
         const JEST_STARE_INLINE_SOURCE = "JEST_STARE_INLINE_SOURCE";
+        const JEST_STARE_GENERATE_PDF = "JEST_STARE_GENERATE_PDF";
         process.env[JEST_STARE_RESULT_DIR] = "some/dir";
         process.env[JEST_STARE_RESULT_JSON] = "some.json";
         process.env[JEST_STARE_RESULT_HTML] = "some.html";
@@ -37,6 +38,7 @@ describe("EnvVars tests", () => {
         process.env[JEST_STARE_HIDE_PASSING] = "true";
         process.env[JEST_STARE_HIDE_FAILING] = "true";
         process.env[JEST_STARE_INLINE_SOURCE] = "false";
+        process.env[JEST_STARE_GENERATE_PDF] = "false";
         
         const response = new EnvVars().read();
         expect(response).toMatchSnapshot();
