@@ -129,13 +129,20 @@ export interface IJestStareConfig {
      * @memberof IJestStareConfig
      */
     inlineSource?: boolean;
-    
+
     /**
      * Set to true to create a pdf version of the report
      * @type {boolean}
      * @memberof IJestStareConfig
      */
     generatePdf?: boolean;
+
+    /**
+     * Set to token to generate pdf reports
+     * @type {boolean}
+     * @memberof IJestStareConfig
+     */
+    generatePdfToken?: string;
 }
 
 /**

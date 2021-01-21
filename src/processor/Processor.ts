@@ -12,7 +12,7 @@ import { isNullOrUndefined } from "util";
 import { IProcessParms } from "./doc/IProcessParms";
 import { Config } from "./Config";
 import { ImageSnapshotDifference } from "../render/diff/ImageSnapshotDifference";
-import * as puppeteer from "puppeteer";
+import axios from "axios";
 
 /**
  * Class to post process jest output and summarize information in an html file
@@ -177,31 +177,27 @@ export class Processor {
             updatedDependency.targetDir = resultDir + dependency.targetDir;
             this.addThirdParty(updatedDependency);
         });
-        
-        const inlineSource = () => {
-            const inlineContent = mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute);
-            const fileNames =  substitute.jestStareConfig.resultHtml.split(".");
-            fileNames.splice(1, 0, "inline");
-            const inlineReportName = fileNames.join(".");
-            IO.writeFileSync(resultDir + inlineReportName, inlineContent);
 
-            // Remove the non inline files
-            IO.removeFileSync(resultDir + substitute.jestStareConfig.resultHtml);
-            IO.deleteFolderSync(cssDir);
-            IO.deleteFolderSync(jsDir);
-        }
+        if (substitute.jestStareConfig.inlineSource || substitute.jestStareConfig.generatePdf) {
+            const htmlContent =  mustache.render(this.obtainWebFile(Constants.TEMPLATE_INLINE_SOURCE_HTML), substitute);
+            if (substitute.jestStareConfig.inlineSource) {
+                const fileNames =  substitute.jestStareConfig.resultHtml.split(".");
+                fileNames.splice(1, 0, "inline");
+                const inlineReportName = fileNames.join(".");
+                IO.writeFileSync(resultDir + inlineReportName, htmlContent);
 
-        const pdf = async () => {
-            const pdfBuffer = await this.printPDF(resultDir + substitute.jestStareConfig.resultHtml)
-            IO.writeFileSync(resultDir + 'index.pdf', pdfBuffer);
-        }
-
-        if (substitute.jestStareConfig.generatePdf && substitute.jestStareConfig.inlineSource) {
-            pdf().then(inlineSource);
-        } else if (substitute.jestStareConfig.inlineSource) {
-            inlineSource();
-        } else if (substitute.jestStareConfig.generatePdf) {
-            pdf();
+                // Remove the non inline files
+                IO.removeFileSync(resultDir + substitute.jestStareConfig.resultHtml);
+                IO.deleteFolderSync(cssDir);
+                IO.deleteFolderSync(jsDir);
+            }
+            if (substitute.jestStareConfig.generatePdf) {
+                this.printPDF(htmlContent, substitute.jestStareConfig.generatePdfToken).then((pdfBuffer) => {
+                    if (pdfBuffer) {
+                        IO.writeFileSync(resultDir + "report.pdf", pdfBuffer);
+                    }
+                });
+            }
         }
 
         // log complete
@@ -210,15 +206,24 @@ export class Processor {
         this.logger.info(Constants.LOGO + type + Constants.LOG_MESSAGE + resultDir + substitute.jestStareConfig.resultHtml + Constants.SUFFIX);
     }
 
-    async printPDF(filePath: string) {
-      const file = path.resolve(process.cwd(), filePath);
-      const browser = await puppeteer.launch({ headless: true });
-      const page = await browser.newPage();
-      await page.goto('file://' + file, {waitUntil: 'networkidle0'});
-      const pdf = await page.pdf({ format: 'A4'});
-     
-      await browser.close();
-      return pdf
+    private async printPDF(content: any, token: string): Promise<any> {
+        try {
+            const result = await axios({
+                method: "post",
+                url: "https://puppeteer.bespoken.io/convertToPdf",
+                data: content,
+                responseType: "arraybuffer",
+                headers: { "x-access-token": token || ""}
+            });
+            return result.data;
+        } catch (error) {
+            if (error.response) {
+                const errorPayload = Buffer.from(error.response.data).toString("utf8");
+                Logger.get.error(errorPayload);
+            } else {
+                Logger.get.error(error.message);
+            }
+        }
     }
 
     /**

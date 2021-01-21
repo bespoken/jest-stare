@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "ansi-parser": "^3.2.9",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "chalk": "^2.4.2",
     "chart.js": "^2.7.3",
@@ -61,7 +62,6 @@
     "mustache": "^3.0.0",
     "pkg-up": "^3.0.0",
     "popper.js": "^1.14.6",
-    "puppeteer": "^5.5.0",
     "yargs": "^14.2.0"
   },
   "devDependencies": {
