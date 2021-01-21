@@ -57,7 +57,9 @@ export class EnvVars {
             hidePassing: this.mEnvSrv.readBoolEnvValue("HIDE_PASSING"),
             hideFailing: this.mEnvSrv.readBoolEnvValue("HIDE_FAILING"),
             hidePending: this.mEnvSrv.readBoolEnvValue("HIDE_PENDING"),
-            inlineSource: this.mEnvSrv.readBoolEnvValue("INLINE_SOURCE")
+            inlineSource: this.mEnvSrv.readBoolEnvValue("INLINE_SOURCE"),
+            generatePdf: this.mEnvSrv.readBoolEnvValue("GENERATE_PDF"),
+            generatePdfToken: this.mEnvSrv.readEnvValue("GENERATE_PDF_TOKEN")
         };
     }
 
@@ -150,6 +152,15 @@ export class EnvVars {
                 envConfig.inlineSource == null ? packageJsonConfig.inlineSource : envConfig.inlineSource;
         }
 
+        if (envConfig.generatePdf != null || packageJsonConfig.generatePdf != null) {
+            mergedConfig.generatePdf =
+                envConfig.generatePdf == null ? packageJsonConfig.generatePdf : envConfig.generatePdf;
+        }
+
+        if (envConfig.generatePdfToken != null || packageJsonConfig.generatePdfToken != null) {
+            mergedConfig.generatePdfToken =
+                envConfig.generatePdfToken == null ? packageJsonConfig.generatePdfToken : envConfig.generatePdfToken;
+        }
         return mergedConfig;
     }
 }

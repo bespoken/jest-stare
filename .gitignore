@@ -10,3 +10,4 @@ notes.txt
 .idea
 junit.xml
 .cache
+.DS_Store
