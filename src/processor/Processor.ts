@@ -194,7 +194,7 @@ export class Processor {
             if (substitute.jestStareConfig.generatePdf) {
                 this.printPDF(htmlContent, substitute.jestStareConfig.generatePdfToken).then((pdfBuffer) => {
                     if (pdfBuffer) {
-                        IO.writeFileSync(resultDir + "report.pdf", pdfBuffer);
+                        IO.writeFileSync(resultDir + "test-results.pdf", pdfBuffer);
                     }
                 });
             }
