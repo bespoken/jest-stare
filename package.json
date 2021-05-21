@@ -1,6 +1,6 @@
 {
   "name": "bespoken-jest-stare",
-  "version": "1.0.19",
+  "version": "1.0.23",
   "description": "jest html reporter (results processor) to view HTML jest results, save raw JSON, and invoke multiple reporters",
   "license": "MIT",
   "repository": "https://github.com/bespoken/jest-stare",
@@ -10,7 +10,7 @@
     "url": ""
   },
   "bin": {
-    "jest-stare": "./lib/jest-stare.js"
+    "jest-stare": "lib/jest-stare.js"
   },
   "keywords": [
     "jest",
