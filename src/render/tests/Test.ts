@@ -70,10 +70,28 @@ export class Test {
         // NOTE(Kelosky): technically, this may not be unique, but it's unlikely to be the case
         const titleId = innerTestResult.title.replace(/\s+/g, "-").toLowerCase();
 
+        const smallContainer = document.createElement("div") as HTMLElement;
+        smallContainer.classList.add("d-block", "text-right", "mt-3");
+
+        // @ts-ignore
+        const utteranceURL = innerTestResult.utteranceURL;
+        if (utteranceURL) {
+            const utteranceLink = document.createElement("a") as HTMLElement;
+            utteranceLink.classList.add("play-button");
+            utteranceLink.setAttribute("href", utteranceURL);
+
+            const playImg = document.createElement("img") as HTMLElement;
+            playImg.setAttribute("src", "img/play.svg");
+            utteranceLink.appendChild(playImg);
+
+            smallContainer.appendChild(utteranceLink);
+        }
+
+
         const small = document.createElement("small") as HTMLElement;
-        small.classList.add("d-block", "text-right", "mt-3");
         const conversionValu = 1000;
         small.textContent = innerTestResult.duration as any / conversionValu + "s";
+        smallContainer.appendChild(small);
 
         const span = document.createElement("span") as HTMLSpanElement;
         span.classList.add("d-block", "mb-2");
@@ -84,7 +102,7 @@ export class Test {
 
         secondDiv.appendChild(span);
         if (testStatusClass !== Constants.PENDING_TEST) {
-            thirdDiv.appendChild(small);
+            thirdDiv.appendChild(smallContainer);
         }
 
         if (failed) {

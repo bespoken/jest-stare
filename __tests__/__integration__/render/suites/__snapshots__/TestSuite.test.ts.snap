@@ -4494,11 +4494,13 @@ Array [
                 >
                   should pass
                 </strong>
-                <small
+                <div
                   class="d-block text-right mt-3"
                 >
-                  0.002s
-                </small>
+                  <small>
+                    0.002s
+                  </small>
+                </div>
               </div>
               <span
                 class="d-block mb-2"
@@ -4545,11 +4547,13 @@ Array [
                     >
                       should pass
                     </strong>
-                    <small
+                    <div
                       class="d-block text-right mt-3"
                     >
-                      0s
-                    </small>
+                      <small>
+                        0s
+                      </small>
+                    </div>
                   </div>
                   <span
                     class="d-block mb-2"
@@ -4598,11 +4602,13 @@ Array [
                     >
                       should pass
                     </strong>
-                    <small
+                    <div
                       class="d-block text-right mt-3"
                     >
-                      0s
-                    </small>
+                      <small>
+                        0s
+                      </small>
+                    </div>
                   </div>
                   <span
                     class="d-block mb-2"
@@ -4631,11 +4637,13 @@ Array [
                     >
                       should fail
                     </strong>
-                    <small
+                    <div
                       class="d-block text-right mt-3"
                     >
-                      0.11s
-                    </small>
+                      <small>
+                        0.11s
+                      </small>
+                    </div>
                   </div>
                   <span
                     class="d-block mb-2"
@@ -4765,11 +4773,13 @@ Array [
                   >
                     should be around
                   </strong>
-                  <small
+                  <div
                     class="d-block text-right mt-3"
                   >
-                    0s
-                  </small>
+                    <small>
+                      0s
+                    </small>
+                  </div>
                 </div>
                 <span
                   class="d-block mb-2"
@@ -4807,11 +4817,13 @@ Array [
                     >
                       should pass
                     </strong>
-                    <small
+                    <div
                       class="d-block text-right mt-3"
                     >
-                      0s
-                    </small>
+                      <small>
+                        0s
+                      </small>
+                    </div>
                   </div>
                   <span
                     class="d-block mb-2"
@@ -4840,11 +4852,13 @@ Array [
                     >
                       should fail
                     </strong>
-                    <small
+                    <div
                       class="d-block text-right mt-3"
                     >
-                      0s
-                    </small>
+                      <small>
+                        0s
+                      </small>
+                    </div>
                   </div>
                   <span
                     class="d-block mb-2"
@@ -4964,11 +4978,13 @@ Array [
                   >
                     should be around too
                   </strong>
-                  <small
+                  <div
                     class="d-block text-right mt-3"
                   >
-                    0s
-                  </small>
+                    <small>
+                      0s
+                    </small>
+                  </div>
                 </div>
                 <span
                   class="d-block mb-2"
@@ -5016,11 +5032,13 @@ Array [
                     >
                       should pass
                     </strong>
-                    <small
+                    <div
                       class="d-block text-right mt-3"
                     >
-                      0s
-                    </small>
+                      <small>
+                        0s
+                      </small>
+                    </div>
                   </div>
                   <span
                     class="d-block mb-2"
@@ -5078,11 +5096,13 @@ Array [
             >
               should pass with image snapshot
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.109s
-            </small>
+              <small>
+                0.109s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -5111,11 +5131,13 @@ Array [
             >
               should fail with image snapshot
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.213s
-            </small>
+              <small>
+                0.213s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -5232,11 +5254,13 @@ Array [
             >
               should fail with another image snapshot
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.213s
-            </small>
+              <small>
+                0.213s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -5400,11 +5424,13 @@ Array [
             >
               should pass
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0s
-            </small>
+              <small>
+                0s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -5433,11 +5459,13 @@ Array [
             >
               should fail
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.09s
-            </small>
+              <small>
+                0.09s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -5558,11 +5586,13 @@ Array [
             >
               should pretend to write to a file
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.003s
-            </small>
+              <small>
+                0.003s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -5591,11 +5621,13 @@ Array [
             >
               should match snapshot with one field
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.003s
-            </small>
+              <small>
+                0.003s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -5624,11 +5656,13 @@ Array [
             >
               should match snapshot with two fields
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.14s
-            </small>
+              <small>
+                0.14s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -6478,11 +6512,13 @@ Array [
             >
               should match snapshot with three fields
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.001s
-            </small>
+              <small>
+                0.001s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -7352,11 +7388,13 @@ Array [
             >
               should instantiate Reporter class
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.001s
-            </small>
+              <small>
+                0.001s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -7410,11 +7448,13 @@ Array [
             >
               should pretend to write to a file
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.003s
-            </small>
+              <small>
+                0.003s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -7443,11 +7483,13 @@ Array [
             >
               should match snapshot with one field
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.001s
-            </small>
+              <small>
+                0.001s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -7476,11 +7518,13 @@ Array [
             >
               should match snapshot with two fields
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.001s
-            </small>
+              <small>
+                0.001s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -7509,11 +7553,13 @@ Array [
             >
               should match snapshot with three fields
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0s
-            </small>
+              <small>
+                0s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -7562,11 +7608,13 @@ Array [
             >
               should instantiate Reporter class
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.001s
-            </small>
+              <small>
+                0.001s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -7620,11 +7668,13 @@ Array [
             >
               should fail with a snapshot difference
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.093s
-            </small>
+              <small>
+                0.093s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -8580,11 +8630,13 @@ Array [
             >
               should be a placeholder
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0s
-            </small>
+              <small>
+                0s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -8613,11 +8665,13 @@ Array [
             >
               should fail with a snapshot difference 2
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0s
-            </small>
+              <small>
+                0s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9592,11 +9646,13 @@ Array [
             >
               should pass
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.001s
-            </small>
+              <small>
+                0.001s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9645,11 +9701,13 @@ Array [
             >
               should create a report form an input object
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.015s
-            </small>
+              <small>
+                0.015s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9678,11 +9736,13 @@ Array [
             >
               should error when called without input
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0s
-            </small>
+              <small>
+                0s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9731,11 +9791,13 @@ Array [
             >
               should pretend to write to a file
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.002s
-            </small>
+              <small>
+                0.002s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9764,11 +9826,13 @@ Array [
             >
               should pretend to write to a file and reject promise for IO errors
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0s
-            </small>
+              <small>
+                0s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9797,11 +9861,13 @@ Array [
             >
               should say true if dir exists
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.001s
-            </small>
+              <small>
+                0.001s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9830,11 +9896,13 @@ Array [
             >
               should false if dir does not exist
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0s
-            </small>
+              <small>
+                0s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9883,11 +9951,13 @@ Array [
             >
               should get a log instance
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0s
-            </small>
+              <small>
+                0s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9936,11 +10006,13 @@ Array [
             >
               should instantiate Reporter class
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.001s
-            </small>
+              <small>
+                0.001s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
@@ -9969,11 +10041,13 @@ Array [
             >
               should do something
             </strong>
-            <small
+            <div
               class="d-block text-right mt-3"
             >
-              0.001s
-            </small>
+              <small>
+                0.001s
+              </small>
+            </div>
           </div>
           <span
             class="d-block mb-2"
