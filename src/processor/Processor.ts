@@ -170,6 +170,15 @@ export class Processor {
         IO.mkdirsSync(jsDir);
         IO.writeFileSync(jsDir + Constants.JEST_STARE_JS, this.obtainJsRenderFile(Constants.JEST_STARE_JS));
 
+        // create img
+        IO.mkdirsSync(resultDir + "img/");
+        Constants.IMAGES.forEach((image) => {
+            const sourceImg = this.obtainWebPath(`img/${image}`);
+            const destImg = resultDir + `img/${image}`;
+            IO.copyFileSync(sourceImg, destImg);
+        });
+
+
         // add third party dependencies
         Dependencies.THIRD_PARTY_DEPENDENCIES.forEach((dependency) => {
             // dependency.targetDir = resultDir + dependency.targetDir;
@@ -282,6 +291,16 @@ export class Processor {
      */
     private obtainJsRenderFile(name: string): string {
         return IO.readFileSync(path.resolve(__dirname + "/../render/" + name));
+    }
+
+    /**
+     * Obtain img path
+     * @private
+     * @returns {string} - js file contents from js directory
+     * @memberof Processor
+     */
+    private obtainWebPath(name: string): string {
+        return path.resolve(__dirname + "/../../web/" + name);
     }
 
     /**

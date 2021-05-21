@@ -154,5 +154,5 @@ export class IO {
           });
           fs.rmdirSync(wpath);
         }
-      }
+    }
 }

@@ -161,4 +161,11 @@ export class Constants {
      * @memberof Constants
      */
     public static readonly OVERRIDE_JEST_STARE_CONFIG = Constants.NAME + " was called with programmatic config";
+
+    /**
+     * List of images to include
+     * @static
+     * @memberof Constants
+     */
+    public static readonly IMAGES = ["play.svg"];
 }
