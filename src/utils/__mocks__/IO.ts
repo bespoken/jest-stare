@@ -32,4 +32,8 @@ export class IO {
     public static readPackageJson(): object {
         return {};
     }
+
+    public static copyFileSync(path: string, data: any) {
+        return;
+    }
 }
