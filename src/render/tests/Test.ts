@@ -3,6 +3,7 @@ import * as AnsiParser from "ansi-parser";
 import { TestDifference } from "../diff/TestDifference";
 import { ImageSnapshotDifference } from "../diff/ImageSnapshotDifference";
 
+let globalCounter = 0;
 /**
  * Create elements for a test
  * @export
@@ -76,20 +77,26 @@ export class Test {
         // @ts-ignore
         const utteranceURL = innerTestResult.utteranceURL;
         if (utteranceURL) {
-            const utteranceLink = document.createElement("a") as HTMLElement;
-            utteranceLink.classList.add("play-button");
-            utteranceLink.setAttribute("href", utteranceURL);
+            const id = "audio-" + ++globalCounter;
+            const audio =  document.createElement("audio") as HTMLElement;
+            audio.setAttribute("id", id);
+            const audioSource = document.createElement("source") as HTMLElement;
+            audioSource.setAttribute("src", utteranceURL);
+            audioSource.setAttribute("type", "audio/mpeg");
+            audio.appendChild(audioSource);
 
             const playImg = document.createElement("img") as HTMLElement;
             playImg.setAttribute("src", "img/play.svg");
-            utteranceLink.appendChild(playImg);
+            playImg.setAttribute("onclick", `document.getElementById("${id}").play();`);
 
-            smallContainer.appendChild(utteranceLink);
+            smallContainer.appendChild(audio);
+            smallContainer.appendChild(playImg);
         }
 
 
         const small = document.createElement("small") as HTMLElement;
         const conversionValu = 1000;
+        small.classList.add("duration-label");
         small.textContent = innerTestResult.duration as any / conversionValu + "s";
         smallContainer.appendChild(small);
 

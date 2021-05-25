@@ -202,3 +202,7 @@ code {
     margin-right: 8px;
 }
 
+.duration-label {
+    width: 50px;
+    display: inline-block;
+}
