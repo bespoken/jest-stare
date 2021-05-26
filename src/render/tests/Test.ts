@@ -86,6 +86,7 @@ export class Test {
             audio.appendChild(audioSource);
 
             const playImg = document.createElement("img") as HTMLElement;
+            playImg.classList.add("play-button");
             playImg.setAttribute("src", "img/play.svg");
             playImg.setAttribute("onclick", `document.getElementById("${id}").play();`);
 
